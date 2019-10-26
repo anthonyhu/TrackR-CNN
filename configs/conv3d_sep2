@@ -1,7 +1,7 @@
 {
   # Engine settings
   "model": "conv3d_sep2",
-  "task": "train_no_val",
+  "task": "train",
   "dataset": "KITTI_segtrack",
   "log_verbosity": 5,
   "gpus": 1,
@@ -14,9 +14,9 @@
   "add_masks": true,
 
   # Pretrained model from tensorpack
-  "load_init": "",
+  "load_init": "/data/cvfs/ah2029/datasets/kitti/mots/trackrcnn_coco_mapillary_weights/converted",
   # Freeze applies to the whole model, not just our backend, but that's fine since only the backend uses batchnorm
-  "freeze_batchnorm": false,
+  "freeze_batchnorm": true,
   "max_saves_to_keep": 1,
 
   # Training settings
@@ -27,16 +27,16 @@
   "max_saves_to_keep": 1,
 
   # Dataset options
-  "KITTI_segtrack_data_dir": "/data/cvfs/ah2029/kitti/mots/train/",
+  "KITTI_segtrack_data_dir": "/data/cvfs/ah2029/datasets/kitti/mots_192x640",
   "MOTS_segtrack_data_dir": "" ,
   "optical_flow_path": "",
   "prefer_gt_to_ignore": true,
   "use_ioa_for_ignore": true,
   "use_masks_for_ignore": true,
   "resize_mode_train": "fixed_size",
-  "input_size_train": [309, 1024],
+  "input_size_train": [192, 640],
   "resize_mode_val": "fixed_size",
-  "input_size_val": [375, 1242],
+  "input_size_val": [192, 640],
 
   "augmentors_train": ["flip", "gamma"],
   "num_parallel_calls": 6,
