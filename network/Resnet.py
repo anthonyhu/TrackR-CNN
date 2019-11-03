@@ -79,7 +79,7 @@ def add_resnet_conv5(image, tower_setup):
 
 # See also savitar1
 class ResNet(Layer):
-  def __init__(self, name, inputs, tower_setup, variant, add_conv5):
+  def __init__(self, name, inputs, tower_setup, variant, add_conv5, freeze_c2=True):
     super(ResNet, self).__init__()
     inp, n_features_inp = prepare_input(inputs)
     # for grayscale
@@ -90,9 +90,9 @@ class ResNet(Layer):
 
     with tf.variable_scope(name):
       if variant == "resnet50":
-        net = pretrained_resnet50_conv4(inp, tower_setup)
+        net = pretrained_resnet50_conv4(inp, tower_setup, freeze_c2)
       elif variant == "resnet101":
-        net = pretrained_resnet101_conv4(inp, tower_setup)
+        net = pretrained_resnet101_conv4(inp, tower_setup, freeze_c2)
       else:
         assert False, "Unknown ResNet variant"
 
@@ -108,20 +108,24 @@ class ResNet(Layer):
 
 
 class ResNet50(ResNet):
-  def __init__(self, name, inputs, tower_setup):
-    super(ResNet50, self).__init__(name, inputs, tower_setup, variant="resnet50", add_conv5=True)
+  def __init__(self, name, inputs, tower_setup, freeze_c2=True):
+    super(ResNet50, self).__init__(name, inputs, tower_setup, variant="resnet50", add_conv5=True,
+                                   freeze_c2=freeze_c2)
 
 
 class ResNet50Conv4(ResNet):
-  def __init__(self, name, inputs, tower_setup):
-    super(ResNet50Conv4, self).__init__(name, inputs, tower_setup, variant="resnet50", add_conv5=False)
+  def __init__(self, name, inputs, tower_setup, freeze_c2=True):
+    super(ResNet50Conv4, self).__init__(name, inputs, tower_setup, variant="resnet50", add_conv5=False,
+                                        freeze_c2=freeze_c2)
 
 
 class ResNet101(ResNet):
-  def __init__(self, name, inputs, tower_setup):
-    super(ResNet101, self).__init__(name, inputs, tower_setup, variant="resnet101", add_conv5=True)
+  def __init__(self, name, inputs, tower_setup, freeze_c2=True):
+    super(ResNet101, self).__init__(name, inputs, tower_setup, variant="resnet101", add_conv5=True,
+                                    freeze_c2=freeze_c2)
 
 
 class ResNet101Conv4(ResNet):
-  def __init__(self, name, inputs, tower_setup):
-    super(ResNet101Conv4, self).__init__(name, inputs, tower_setup, variant="resnet101", add_conv5=False)
+  def __init__(self, name, inputs, tower_setup, freeze_c2=True):
+    super(ResNet101Conv4, self).__init__(name, inputs, tower_setup, variant="resnet101", add_conv5=False,
+                                         freeze_c2=freeze_c2)

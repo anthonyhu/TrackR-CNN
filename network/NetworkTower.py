@@ -134,6 +134,10 @@ class NetworkTower:
     layer_def["name"] = name
     del layer_def["class"]
 
+    if layer_def['name'] == 'resnetconv4':
+      print('Unfreezing c2 in resnetconv4')
+      layer_def['freeze_c2'] = False
+
     # check if all args are specified
     defaults = spec[3]
     if defaults is None:
