@@ -17,14 +17,13 @@
   "load_init": "/data/cvfs/ah2029/datasets/kitti/mots/trackrcnn_coco_mapillary_weights/converted",
   # Freeze applies to the whole model, not just our backend, but that's fine since only the backend uses batchnorm
   "freeze_batchnorm": true,
-  "max_saves_to_keep": 1,
 
   # Training settings
   "batch_size": 8,
   "learning_rates": "{1: 0.0000005}",
   "optimizer": "adam",
-  "num_epochs": 1,
-  "max_saves_to_keep": 1,
+  "num_epochs": 3,
+  "max_saves_to_keep": 3,
 
   # Dataset options
   "KITTI_segtrack_data_dir": "/data/cvfs/ah2029/datasets/kitti/mots_192x640",
