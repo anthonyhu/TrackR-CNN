@@ -23,7 +23,7 @@
   "batch_size": 8,
   "learning_rates": "{1: 0.0000005}",
   "optimizer": "adam",
-  "num_epochs": 5,
+  "num_epochs": 1,
   "max_saves_to_keep": 1,
 
   # Dataset options
