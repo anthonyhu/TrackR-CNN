@@ -14,29 +14,28 @@
   "add_masks": true,
 
   # Pretrained model from tensorpack
-  "load_init": "/globalwork/krause/pretrained_models/tensorpack/PReMVOS-COCO-Mapillary-PreProcForKITTISegtrack/converted",
+  "load_init": "/data/cvfs/ah2029/datasets/kitti/mots/trackrcnn_coco_mapillary_weights/converted",
   # Freeze applies to the whole model, not just our backend, but that's fine since only the backend uses batchnorm
   "freeze_batchnorm": true,
-  "max_saves_to_keep": 1,
 
   # Training settings
   "batch_size": 8,
   "learning_rates": "{1: 0.0000005}",
   "optimizer": "adam",
-  "num_epochs": 5,
+  "num_epochs": 1,
   "max_saves_to_keep": 1,
 
   # Dataset options
-  "KITTI_segtrack_data_dir": "/globalwork/krause/data/KITTI_MOTS/train/",
-  "MOTS_segtrack_data_dir": "/globalwork/krause/data/MOTS_challenge/train/",
-  "optical_flow_path": "/globalwork/krause/data/KITTI_flow_pwc/",
+  "KITTI_segtrack_data_dir": "/data/cvfs/ah2029/datasets/kitti/mots_192x640",
+  "MOTS_segtrack_data_dir": "",
+  "optical_flow_path": "",
   "prefer_gt_to_ignore": true,
   "use_ioa_for_ignore": true,
   "use_masks_for_ignore": true,
   "resize_mode_train": "fixed_size",
-  "input_size_train": [309, 1024],
+  "input_size_train": [192, 640],
   "resize_mode_val": "fixed_size",
-  "input_size_val": [375, 1242],
+  "input_size_val": [192, 640],
 
   "augmentors_train": ["flip", "gamma"],
   "num_parallel_calls": 6,

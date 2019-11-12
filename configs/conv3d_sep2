@@ -20,14 +20,14 @@
 
   # Training settings
   "batch_size": 8,
-  "learning_rates": "{1: 0.0000005}",
+  "learning_rates": "{1: 0.0000003}",
   "optimizer": "adam",
-  "num_epochs": 3,
-  "max_saves_to_keep": 3,
+  "num_epochs": 1,
+  "max_saves_to_keep": 1,
 
   # Dataset options
   "KITTI_segtrack_data_dir": "/data/cvfs/ah2029/datasets/kitti/mots_192x640",
-  "MOTS_segtrack_data_dir": "" ,
+  "MOTS_segtrack_data_dir": "",
   "optical_flow_path": "",
   "prefer_gt_to_ignore": true,
   "use_ioa_for_ignore": true,
