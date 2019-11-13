@@ -123,13 +123,14 @@ def tracker_per_class(tracker_options, boxes, scores, reids, classes, masks, cla
 
       if tracker_options["mask_iou_weight"] != 0:
         # Prepare flow
-        h, w = flow_tm1_t.shape[:2]
-        flow_tm1_t = -flow_tm1_t
-        flow_tm1_t[:, :, 0] += np.arange(w)
-        flow_tm1_t[:, :, 1] += np.arange(h)[:, np.newaxis]
+        #h, w = flow_tm1_t.shape[:2]
+        #flow_tm1_t = -flow_tm1_t
+        #flow_tm1_t[:, :, 0] += np.arange(w)
+        #flow_tm1_t[:, :, 1] += np.arange(h)[:, np.newaxis]
         masks_t = [v[2] for v in detections_t]
         masks_tm1 = [v.mask for v in active_tracks]
-        masks_tm1_warped = [warp_flow(mask, flow_tm1_t) for mask in masks_tm1]
+        #masks_tm1_warped = [warp_flow(mask, flow_tm1_t) for mask in masks_tm1]
+        masks_tm1_warped = masks_tm1
         mask_ious = cocomask.iou(masks_t, masks_tm1_warped, [False] * len(masks_tm1_warped))
         association_similarities += tracker_options["mask_iou_weight"] * mask_ious
 

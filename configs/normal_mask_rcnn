@@ -42,6 +42,9 @@
   "prefetch_buffer_size": 8,
 
   "mask_disjoint_strategy": "score",
+"tracker": "hungarian", "tracker_reid_comp": "euclidean", "detection_confidence_threshold_car": 0.8469800990815324, "reid_weight_car": 0.0, "mask_iou_weight_car": 1.0, "bbox_center_weight_car": 0.0, "bbox_iou_weight_car": 0.0, "association_threshold_car": 0.43, "keep_alive_car": 4, "reid_euclidean_offset_car": 8.810218833503743, "reid_euclidean_scale_car": 1.0090931467228708,
+"detection_confidence_threshold_pedestrian": 0.9368820089063415, "reid_weight_pedestrian": 0.0, "mask_iou_weight_pedestrian": 1.0, "bbox_center_weight_pedestrian": 0.0, "bbox_iou_weight_pedestrian": 0.0, "association_threshold_pedestrian": 0.47985540892434836, "keep_alive_pedestrian": 6, "reid_euclidean_offset_pedestrian": 9.447084376750222, "reid_euclidean_scale_pedestrian": 1.3437965549876354,
+
 
   "network": {
     "resnetconv4": {"class": "ResNet101Conv4"},

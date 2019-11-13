@@ -179,7 +179,7 @@ class TrackingForwarder(RecurrentDetectionForwarder):
         self.tracker_options["mask_iou_weight_pedestrian"] > 0.0 or \
         self.tracker_options["bbox_iou_weight_car"] > 0.0 or \
         self.tracker_options["bbox_iou_weight_pedestrian"] > 0.0:
-        optical_flow = load_optical_flow(tag, self.optical_flow_path)
+        optical_flow = None  #load_optical_flow(tag, self.optical_flow_path)
       else:
         optical_flow = None
       hyp_tracks = track_single_sequence(self.tracker_options, det_boxes, det_scores, reid_features, det_classes,
